@@ -1,0 +1,145 @@
+<title>Schmudoku Instructions</title> 
+<h2><font face="Arial, Helvetica, sans-serif">1. About</font></h2>
+<p><font face="Arial, Helvetica, sans-serif">This is a Sudoku puzzle generator 
+  and solver. See the <strong>Wikipedia</strong> tab or go to <a href="http://en.wikipedia.org/wiki/Sudoku">http://en.wikipedia.org/wiki/Sudoku</a> 
+  for general info about Sudoku puzzles and strategies for solving them.</font></p>
+<p>&nbsp;</p>
+<h2><font face="Arial, Helvetica, sans-serif">2. Instructions</font></h2>
+<p>&nbsp;</p>
+<h3><font face="Arial, Helvetica, sans-serif">2.1 Entering Numbers</font></h3>
+<p><font face="Arial, Helvetica, sans-serif">Click on a cell, then press a number 
+  key on the keyboard. Hit delete, backspace, or space to clear a cell. You can 
+  also clear a cell by pressing the number that it currently contains.</font></p>
+<p>&nbsp;</p>
+<h3><font face="Arial, Helvetica, sans-serif">2.2 Entering Markups</font></h3>
+<p><font face="Arial, Helvetica, sans-serif">To enter a markup, right click a 
+  cell and enter digits from 1 to 9. Pressing a digit once will enter amarkup. 
+  Pressing the same digit again will clear it. To clear all markups, hit delete 
+  or backspace. </font></p>
+<p><font face="Arial, Helvetica, sans-serif">For information on the uses of markups, 
+  see Wikipedia.</font></p>
+<p>&nbsp;</p>
+<h3><font face="Arial, Helvetica, sans-serif"> 2.3 The Lock Checkbox</font></h3>
+<p><font face="Arial, Helvetica, sans-serif">Locked cells are highlighted in blue. 
+  You cannot enter text in a locked cell. Unchecking <strong>lock</strong> will 
+  unlock all cells. Checking <strong>lock</strong> will lock down all filled cells, 
+  and check the puzzle for difficulty and solvability. You can use this feature 
+  to create your own puzzles or enter a puzzle from another source.</font></p>
+<p>&nbsp;</p>
+<h3><font face="Arial, Helvetica, sans-serif">2.4 The Conflicts Checkbox</font></h3>
+<p><font face="Arial, Helvetica, sans-serif">If <strong>conflicts</strong> is 
+  checked, the program will highlight conflicts in red as you enter them. Note 
+  that just because a cell is not highlighted does not mean it is correct, only 
+  that there is no obvious conflict right now.</font></p>
+<p>&nbsp;</p>
+<h3><font face="Arial, Helvetica, sans-serif">2.5 The New Button</font></h3>
+<p><font face="Arial, Helvetica, sans-serif">Creates a new puzzle. You will be 
+  asked to choose a difficulty, and then a new Sudoku puzzle of that difficulty 
+  will be created for you.</font></p>
+<p>&nbsp;</p>
+<h3><font face="Arial, Helvetica, sans-serif">2.6 Puzzle Difficulty</font></h3>
+<blockquote>
+  <p><font face="Arial, Helvetica, sans-serif"><strong>Very Easy, Easy and Moderate:</strong> 
+    These puzzles can be solved with a scanning strategy (see Wikipedia).</font></p>
+  <p><font face="Arial, Helvetica, sans-serif"><strong>Hard and Very Hard:</strong> 
+    These puzzles will require a markup/analysis strategy (see Wikipedia) at some 
+    point.</font></p>
+  <p><font face="Arial, Helvetica, sans-serif"><strong>Extremely Hard:</strong> 
+    These puzzles will require a trial and error strategy at some point. Schmudoku 
+    will not generate Extremely Hard puzzles for you, but it can recognize an 
+    Extremely Hard puzzle if you enter one and lock it in.</font></p>
+  <p>&nbsp;</p>
+</blockquote>
+<h3><font face="Arial, Helvetica, sans-serif">2.7 The Solve Button</font></h3>
+<p><font face="Arial, Helvetica, sans-serif">Automatically solves the puzzle based 
+  on the locked cells. Cells that the computer fills in during this process will 
+  be highlighted in yellow, and cells that you had filled incorrectly will be 
+  highlighted in red.</font></p>
+<p>&nbsp;</p>
+<h3><font face="Arial, Helvetica, sans-serif">2.8 The Clear Button</font></h3>
+<p><font face="Arial, Helvetica, sans-serif">Clears unlocked cells and/or annotations. 
+  You will be asked to choose whether you want to clear all the main entries, 
+  the markups, just the conflicts, or everything.</font></p>
+<p>&nbsp;</p>
+<h3><font face="Arial, Helvetica, sans-serif">2.9 The Undo and Redo Buttons</font></h3>
+<p><font face="Arial, Helvetica, sans-serif">The <strong>&lt;</strong> and <strong>&gt;</strong> 
+  buttons are for undoing and redoing operations. These buttons are enabled only 
+  when undo and/or redo are available. The undo buffer contains 100 entries.</font></p>
+<p>&nbsp;</p>
+<h2><font face="Arial, Helvetica, sans-serif">3. How Schumdoku! Works</font></h2>
+<p>&nbsp;</p>
+<h3><font face="Arial, Helvetica, sans-serif">3.1 Solving and Rating Puzzles</font></h3>
+<p><font face="Arial, Helvetica, sans-serif">Schmudoku! rates a puzzle by attempting 
+  to solve it. The first attempt uses only scanning (see Wikipedia) -- Schmudoku! 
+  scans rows, columns and 3x3 boxes looking for a digit that can only go in one 
+  spot. If the puzzle can be solved this way, then it is rated as either Very 
+  Easy, Easy, or Moderate. The particular rating depends mostly on the average 
+  number of cells that were filled in on each complete pass (where a pass is a 
+  complete scan of every row, column, and box), but it also takes into account 
+  the number of bottlenecks encountered. A bottleneck is any complete scan that 
+  results in only one new cell being filled in. </font></p>
+<p><font face="Arial, Helvetica, sans-serif">If the puzzle cannot be solved by 
+  scanning, another attempt is made using both scanning and markup strategies. 
+  Hard puzzles are those that can be solved by a combination of scanning and a 
+  markup strategy that looks for cells that can only be filled in by a single 
+  digit. Very Hard puzzles also involve the use of a markup strategy that engages 
+  in candidate elimination by identifying matched cell groups (see Wikipedia). 
+  </font></p>
+<p><font face="Arial, Helvetica, sans-serif">If the puzzle cannot be solved by 
+  scanning or marking up, Schmudoku! resorts to a backtracking algorithm. The 
+  backtracking algorithm tries all possible combinations of digits in the remaining 
+  cells looking for one combination that works. If the puzzle can only be solved 
+  this way, then it is classified as Extremely Hard. If not, then it is unsolveable. 
+  Backtracking can alsoidentify whether the puzzle has more than one solution.</font></p>
+<p>&nbsp;</p>
+<h3><font face="Arial, Helvetica, sans-serif">3.2 Creating Puzzles</font></h3>
+<p><font face="Arial, Helvetica, sans-serif">Schmudoku! creates puzzles by first 
+  finding a valid solved puzzle (there are very few of these relative to the total 
+  number of 9x9 arrangements of digits), and then blanking out cells a few at 
+  a time and attempting to solve the resulting puzzles.</font></p>
+<p><font face="Arial, Helvetica, sans-serif">Schmudoku! finds valid solved puzzles 
+  using a technique called Random Mutation Hill Climbing. It starts by arranging 
+  the digits 1 to 9 randomly in each 3x3 box. Then it produces a score for the 
+  puzzle by counting the number of conflicts in each row and column (the number 
+  of repeated digits). A score of 0 is a valid solved puzzle, anything higher 
+  must be changed. At each step of the hill climbing, Schmudoku! randomly chooses 
+  one of the 3x3 boxes and then randomly swaps two of the digits within that box. 
+  Then it scores the board again. If the board gets a better (lower) score, it 
+  is kept. If it doesn't, it gets thrown away. The process continues until a valid 
+  solved puzzle is found. (It's like trying to climb a hill by taking one step 
+  at a time in a random direction, and then figuring out whether you are higher 
+  or lower than you were before.)</font></p>
+<p><font face="Arial, Helvetica, sans-serif">The next step is to create a partially 
+  filled in puzzle. Schmudoku! does this by randomly blanking out a few cells 
+  at a time and attempting to solve the puzzle. If the puzzle cannot be solved 
+  using scanning and markup strategies, the blanked out cells are filled back 
+  in and the process repeats. After Schmudoku! can make no more progress in this 
+  way, it is finished and the puzzle can be rated. You may have noticed that Schmudoku! 
+  produces symmetrical boards. This is because it always blanks out 2 or 4 cells 
+  at a time, and does it in such a way as to keep the symmetry of the board.</font></p>
+<p><font face="Arial, Helvetica, sans-serif">Not all puzzles created in this way 
+  are acceptable. If the puzzle has more than 30 clues, or does not fit any of 
+  the rating criteria (i.e., it doesn't fit the definition of Very Easy, Easy, 
+  Moderate, Hard, or Very Hard), then it is discarded and the whole process continues 
+  until a puzzle is found that fits the criteria. That's why it can sometimes 
+  take a few seconds to find a new puzzle.</font></p>
+<p>&nbsp;</p>
+<h3><font face="Arial, Helvetica, sans-serif">3.2 Inefficiencies</font></h3>
+<p><font face="Arial, Helvetica, sans-serif">There are lots of inefficiencies 
+  in the board creation process described above, and it's an ongoing project to 
+  produce a more efficient board creator. The first main focus will be on the 
+  process that goes from a solved puzzle to a blanked-out one. This algorithm 
+  should really check the difficulty level as it goes and throw away puzzles that 
+  don't fit the current level of difficulty. But this is harder than it sounds 
+  because the difficulty ratings don't make much sense until most of the cells 
+  are blank. (To see this, try solving a board using Schmudoku, then blank out 
+  one cell, and unlokc and lock to generate a rating). But if this step can be 
+  improved, then fewer puzzles will be produced that don't fit the criteria, and 
+  the puzzle creation process will be considerably faster.</font></p>
+<p>&nbsp;</p>
+<h2><font face="Arial, Helvetica, sans-serif">4. Credits</font></h2>
+<p><font face="Arial, Helvetica, sans-serif">Schmudoku! was written by Sam Scott. 
+  The original Schmudoku engine was written in 2005 in Turing. It was translated 
+  to Java and the interface was added in December, 2007. Contact the author at 
+  <a href="mailto:sam.scott@tel.tdsb.on.ca">sam.scott@tel.tdsb.on.ca</a>.</font></p>
+<p>&nbsp;</p>
